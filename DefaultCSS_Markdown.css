@@ -1,15 +1,24 @@
-:root { /* Do not remove this line */
-
 /*▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼
 
     BBStylish – Attractive Markdown Preview CSS for BBEdit
     <https://nostodnayr.net/projects/bbstylish>
-    
+
     Made by Ryan Dotson – rd@nostodnayr.net
-    
-    Version 1
-    14 October 2019
-    
+
+    Version 2
+    22 January 2022
+
+    New customisations in this version:
+      * Font for headings
+      * Background colour for quotation blocks
+
+    Style changes:
+      * Added line height for headings H1–6
+      * Added rule to keep images from overflowing the
+        text column (thanks, Wayne!)
+      * Added some padding to quotation blocks
+      * Links are underlined by default
+
                       •   ·    ¶    ·   •                  
 
     BBStylish is a stylesheet for BBEdit’s Preview window
@@ -32,7 +41,6 @@
 
 ▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼*/
 
-
 /*  0.  I N S T R U C T I O N S   F O R   U S E
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -52,14 +60,14 @@
     EDITING
     -------
     Obviously the best way to edit this file is using
-    BBEdit itself. You can get to it any time using the
-    Folders menu, as detailed above.
+    BBEdit itself. ;-) You can get to it any time using
+    the Folders menu, as detailed above.
 
     If you’ve got a Preview window open, you can also open
     this file from the ‘CSS:’ pop-up menu by holding down
     the option (⌥) key when you choose this file from
     the menu.
-        
+
     ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
 
     HOW THE SETTINGS WORK
@@ -80,9 +88,9 @@
     *semicolon*. Thus a full setting line looks like this:
 
         --text-font: "New York";
-    
+
     This bears repeating:
-    
+
     ░▒▓█  The line must end with a semicolon.  █▓▒░
 
     Otherwise, spaces and tabs are ignored, except
@@ -97,7 +105,7 @@
     file. When the file is saved, the Preview window will
     refresh automatically, showing the updated settings.
 
-    This way you can easily confirm or undo any changes
+    This way, you can easily confirm or undo any changes
     you make.
 
     ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
@@ -108,19 +116,18 @@
     for misplaced spaces, semicolons, quotation marks and
     other punctuation. In almost every case, these will
     result in unexpected behaviour.
-    
-    If necessary, you can download a fresh copy of this
+
+    If you need, you can download a fresh copy of this
     file from:
 
     <https://nostodnayr.net/projects/bbstylish/>
 
-
 ▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾▴▾*/
-
+:root { /* Do not remove this line */
 
 /*  1.  F O N T S
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
+
     You can customise the typeface/font used for the preview
     by changing the values here.
 
@@ -144,33 +151,28 @@
     Apple’s code font, SF Mono, then the Preview will
     skip over it and use Monaco instead.                  */
 
---text-font:  -apple-system;
---code-font:  "SF Mono", "Monaco";
-
-
-
+--text-font:     -apple-system;
+--heading-font:  -apple-system;
+--code-font:     "SF Mono", "Monaco";
 
 /*  2.  T E X T   Z O O M
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
+
     Text zoom is a percentage of the default size,
     similar to the BBEdit ‘Text Zoom’ feature.
 
     Because some ‘code’ fonts can appear larger than other
     text, its zoom can be set separately.
-    
-    You do not need to enter the % sign for these settings.
+
+    You don’t need to enter the % sign for these settings.
     Just enter a number.                                  */
 
 --text-zoom:       120;
 --code-text-zoom:  85;
 
-
-
-
 /*  3.  C O L O U R   C U S T O M I S A T I O N
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
+
     There are four colours that can be customised using
     these settings. They are:
 
@@ -186,7 +188,7 @@
     There is no colour for visited links because BBEdit
     doesn’t ‘know about’ what links have been visited in
     Safari or other browsers.
-        
+
     To change these colours, it’s convenient to use the
     colour picker in BBEdit. Select the colour code you want
     to change (e.g. #000000), then open the colour picker
@@ -196,65 +198,58 @@
     already selected.                                     */
 
 /*──────────────────● light ●──────────────────*/
---light-mode-text:          #333333;
---light-mode-headers:       #000000;
---light-mode-code:          #222222;
---light-mode-background:    #f8f8f8;
---light-mode-link:          #45448F;
---light-mode-link-hover:    #6867AA;
-
+--light-mode-text:             #333333;
+--light-mode-headers:          #333333;
+--light-mode-code:             #222222;
+--light-mode-background:       #f8f8f8;
+--light-mode-quote-background: #eeeeee;
+--light-mode-link:             #45448F;
+--light-mode-link-hover:       #6867AA;
 
 /*───────────────────● dark ●──────────────────*/
---dark-mode-text:           #D6D6D6;
---dark-mode-headers:        #D6D6D6;
---dark-mode-code:           #D6D6D6;
---dark-mode-background:     #1E1E1E;
---dark-mode-link:           #9493C8;
---dark-mode-link-hover:     #6867AA;
-
-
-
+--dark-mode-text:             #D6D6D6;
+--dark-mode-headers:          #D6D6D6;
+--dark-mode-code:             #D6D6D6;
+--dark-mode-background:       #1E1E1E;
+--dark-mode-quote-background: #2a2a2a;
+--dark-mode-link:             #9493C8;
+--dark-mode-link-hover:       #6867AA;
 
 /*  4.  L I N K   U N D E R L I N I N G
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
-    You can add or remove link underlining by specifying:
-    
-        underline
-    
-    to show it, or to hide it:
-    
+
+    You can hide link underlines by specifying:
+
         none
-    
-    By default, underlines are hidden, so the text feels
-    less interrupted. */
-    
---link-underline:    none;
 
+    To show underlines, enter:
 
-/*  When the pointer is hovering over a link, the
-    underline is shown.                                   */
+        underline
+
+    More esoteric options like `overline` and `line-through`
+    are supported by Safari, and thus BBEdit, but use at
+    your own discretion. More modern options like `wavy` or
+    `dotted` are not currently Supported in Safari.       */
+
+--link-underline:    underline;
+
+/*  When the pointer is hovering over a link, you can use
+    a different style decoration.                         */
 
 --link-underline-hover:    underline;
 
-
-
-
 /*  5.  L I N E   H E I G H T  /  S P A C I N G
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
+
     The line height effectively sets how much space comes
     between each line. For example, you could change this
     setting to 2 to make the text double-spaced.          */
-   
+
 --line-height:    1.55;
-
-
-
 
 /*  6.  T E X T   W I D T H
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-    
+
     The text-width and max-width settings control how
     wide the column of text will appear in the Preview
     window.
@@ -307,14 +302,13 @@
     ║         ░░░░░░░░░░░░░░░░░░░░░░░░░░░░         ║
     ║         ░░░░░░░░░░░░░░░░░░░░░░░░░░░░         ║
     ╚══════════════════════════════════════════════╝
-                                                          
+
 ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~ */
 
 /* The text-width is a percentage of the Preview window’s
    width. Enter a number – no % sign is needed.           */
 
 --text-width:    80;
-
 
 /* The line-length will restrict the width specified above
    and is an *approximate* maximum number of characters
@@ -323,9 +317,6 @@
    disconnected from the number of characters per line.   */
 
 --line-length:    62;
-
-
-
 
 /*  7.  M A R G I N  /  C E N T R I N G
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -337,14 +328,15 @@
 
 --margin:    auto;
 
-
 /*  The code indentation is an additional margin added to
     code blocks. If you don’t want it, change it to 0.    */
 
 --code-indent:    2;
 
+/*  Block quotes are usually indented, but if you don't
+    want that, change this to 0.                          */
 
-
+--blockquote-indent: 1;
 
 /*  8.  H E A D E R   &   F O O T E R   S P A C E
     ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -352,7 +344,7 @@
     To give the text a bit of breathing room at the top
     and bottom of the window, this file adds some padding
     there.
-    
+
     If your preview window is close to the bottom of your
     screen, you may appreciate having a little extra
     space there.
@@ -364,21 +356,14 @@
 --header-space:    0;
 --footer-space:    1.5;
 
-
-
-
-
-
-
 /*░░▒▒▓▓███████████████████████████████████████████▓▓▒▒░░*/
 /*░░▒▒▓▓██████████▓▒░ End of Settings ░▒▓██████████▓▓▒▒░░*/
 /*░░▒▒▓▓███████████████████████████████████████████▓▓▒▒░░*/
-
-
-
-
-
-
+/*                                                       */
+/*                There's no need to edit                */
+/*              anything beyond this point.              */
+/*                                                       */
+/*                       Good bye!                       */
 
 } /* :root */
 
@@ -403,6 +388,11 @@ li + li, li ul, li ol {
     margin-top: 0;
 }
 
+/* !!! This is a shim to make paragraphs inside lists get appropriate padding */
+li p:last-of-type {
+    margin-bottom: calc(var(--line-height) * 1rem);
+}
+
 /* nor paragraphs coming after lower headings */
 h3 + p, h4 + p, h5 + p, h6 + p {
     margin-top: 0;
@@ -419,12 +409,18 @@ h1 + h2, h2 + h3, h1 + h3 {
     margin-top: calc(var(--line-height) * 1rem);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 120%;
+}
+
 body {
 	font-family: var(--text-font);
 	font-size: calc(var(--text-zoom) * 1%);
 
+    /* weight and alignment not implemented in settings */
     font-weight: var(--text-weight);
-	
+    text-align: var(--alignment);
+
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 
@@ -454,11 +450,17 @@ body {
 	background-color: var(--light-mode-background);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
 blockquote {
-    font-size: 90%;
-    line-height: calc(var(--line-height) * 0.9);
-    /* margin-left: calc(var(--blockquote-indent) * 1rem); */
-    /* margin-right: calc(var(--blockquote-indent) * 1rem); */
+    font-size: 95%;
+    line-height: calc(var(--line-height) * 0.95);
+    background-color: var(--light-mode-quote-background);
+    padding: 0.5rem 0.75rem;
+    margin-left: calc(var(--blockquote-indent) * 1rem);
+    margin-right: calc(var(--blockquote-indent) * 1rem);
 }
 
 a {
@@ -482,25 +484,34 @@ pre {
 	margin-right: calc(var(--code-indent) * 1rem);
 }
 
+img {
+	max-width: 100%;
+}
+
+/* Override rules for dark appearance */
 @media (prefers-color-scheme: dark) {
 	body {
 		color: var(--dark-mode-text);
 		background-color: var(--dark-mode-background);
         -webkit-font-smoothing: subpixel-antialiased;
 	}
-	
+
+	blockquote {
+	    background-color: var(--dark-mode-quote-background);
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 	    color: var(--dark-mode-headers);
 	}
-	
+
 	a {
 	    color: var(--dark-mode-link);
 	}
-	
+
 	a:hover {
 	    color: var(--dark-mode-link-hover);
 	}
-	
+
 	pre, code {
 	    color: var(--dark-mode-code);
 	}
